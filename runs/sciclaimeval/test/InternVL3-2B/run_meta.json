@@ -1,0 +1,9 @@
+{
+  "model": "OpenGVLab/InternVL3-2B",
+  "dataset": "sciclaimeval",
+  "split": "test",
+  "consistency_n": 10,
+  "consistency_temp": 1.0,
+  "concurrency": 96,
+  "saved_at": "2026-05-20T23:54:12.423976+00:00"
+}

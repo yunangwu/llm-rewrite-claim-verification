@@ -1,0 +1,11 @@
+natural:
+  temperature: 0.7
+  max_tokens: 512
+  workers: 8
+
+inject:
+  temperature: 0.25
+  max_tokens: 512
+  workers: 8
+  max_retries: 3
+  min_distance: 3

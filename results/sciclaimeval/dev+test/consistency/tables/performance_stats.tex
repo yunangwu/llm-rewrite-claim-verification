@@ -1,0 +1,40 @@
+\begin{tabular}{l l c ccccccc}
+\toprule
+ & & & \multicolumn{5}{c}{\textbf{Natural Rewriting}} & \multicolumn{2}{c}{\textbf{Controlled Rewriting}} \\
+\cmidrule(lr){4-8} \cmidrule(lr){9-10}
+\textbf{Model} & & \textbf{Base} & LP & FI & AS & OA & CT & D1 & C1 \\
+\midrule
+ \multirow{2}{*}{gemma-4-26B-A4B-it} & P-Acc & 0.548 & \cellcolor{red!5}0.546 & \cellcolor{red!9}0.537 & \cellcolor{red!15}0.529 & \cellcolor{red!13}0.532 & \cellcolor{red!19}0.524 & \cellcolor{green!9}0.560 & \cellcolor{red!7}0.538 \\
+  & F1 & 0.789 & \cellcolor{red!5}0.785 & \cellcolor{red!5}0.782 & \cellcolor{red!13}0.773 & \cellcolor{red!15}0.770 & \cellcolor{green!5}0.790 & \cellcolor{green!5}0.792 & \cellcolor{green!5}0.790 \\
+\addlinespace[2pt]
+ \multirow{2}{*}{gemma-4-31B-it} & P-Acc & 0.610 & \cellcolor{red!20}0.585 & \cellcolor{red!25}0.579 & \cellcolor{red!23}0.581 & \cellcolor{red!36}0.565\textsuperscript{***} & \cellcolor{red!40}0.557\textsuperscript{***} & \cellcolor{red!5}0.606 & \cellcolor{red!19}0.586 \\
+  & F1 & 0.824 & \cellcolor{red!7}0.814 & \cellcolor{red!11}0.809\textsuperscript{*} & \cellcolor{red!11}0.810 & \cellcolor{red!20}0.798\textsuperscript{***} & \cellcolor{red!14}0.806\textsuperscript{*} & \cellcolor{red!5}0.822 & \cellcolor{red!6}0.816 \\
+\addlinespace[2pt]
+ \multirow{2}{*}{GLM-4.6V-Flash} & P-Acc & 0.571 & \cellcolor{red!5}0.566 & \cellcolor{red!6}0.563 & \cellcolor{red!5}0.565 & \cellcolor{red!6}0.563 & \cellcolor{red!25}0.539 & \cellcolor{red!5}0.565 & \cellcolor{red!5}0.568 \\
+  & F1 & 0.791 & \cellcolor{red!5}0.791 & \cellcolor{red!5}0.788 & \cellcolor{red!5}0.790 & \cellcolor{red!5}0.785 & \cellcolor{red!5}0.790 & \cellcolor{green!5}0.792 & \cellcolor{green!5}0.797 \\
+\addlinespace[2pt]
+ \multirow{2}{*}{InternVL3-2B} & P-Acc & 0.041 & \cellcolor{green!13}0.057 & \cellcolor{green!9}0.052 & \cellcolor{green!9}0.052 & \cellcolor{green!15}0.060 & \cellcolor{red!5}0.037 & \cellcolor{green!8}0.051 & \cellcolor{green!5}0.045 \\
+  & F1 & 0.658 & \cellcolor{green!5}0.664 & \cellcolor{green!5}0.664 & \cellcolor{green!5}0.665 & \cellcolor{green!5}0.665 & \cellcolor{green!7}0.667 & \cellcolor{green!6}0.666 & \cellcolor{green!6}0.667 \\
+\addlinespace[2pt]
+ \multirow{2}{*}{InternVL3-8B} & P-Acc & 0.208 & \cellcolor{red!14}0.190 & \cellcolor{red!14}0.190 & \cellcolor{red!17}0.187 & \cellcolor{red!12}0.193 & \cellcolor{red!40}0.135\textsuperscript{***} & \cellcolor{red!5}0.203 & \cellcolor{red!28}0.173\textsuperscript{***} \\
+  & F1 & 0.699 & \cellcolor{red!6}0.691 & \cellcolor{red!5}0.696 & \cellcolor{red!5}0.692 & \cellcolor{red!5}0.692 & \cellcolor{red!9}0.687 & \cellcolor{green!5}0.700 & \cellcolor{red!5}0.695 \\
+\addlinespace[2pt]
+ \multirow{2}{*}{InternVL3-38B} & P-Acc & 0.338 & \cellcolor{red!33}0.296 & \cellcolor{red!24}0.307 & \cellcolor{red!38}0.289 & \cellcolor{red!35}0.294 & \cellcolor{red!40}0.273\textsuperscript{***} & \cellcolor{green!5}0.339 & \cellcolor{red!7}0.329 \\
+  & F1 & 0.718 & \cellcolor{red!11}0.704 & \cellcolor{red!14}0.701 & \cellcolor{red!15}0.699 & \cellcolor{red!20}0.692 & \cellcolor{red!7}0.709 & \cellcolor{red!5}0.712 & \cellcolor{green!5}0.718 \\
+\addlinespace[2pt]
+ \multirow{2}{*}{Kimi-VL-A3B} & P-Acc & 0.353 & \cellcolor{green!7}0.362 & \cellcolor{green!38}0.401\textsuperscript{***} & \cellcolor{green!20}0.378 & 0.353 & \cellcolor{red!10}0.340 & \cellcolor{green!5}0.358 & \cellcolor{red!10}0.340 \\
+  & F1 & 0.730 & \cellcolor{green!5}0.733 & \cellcolor{green!7}0.740 & \cellcolor{green!6}0.739 & \cellcolor{red!5}0.725 & \cellcolor{red!5}0.727 & \cellcolor{red!5}0.725 & \cellcolor{red!5}0.726 \\
+\addlinespace[2pt]
+ \multirow{2}{*}{Qwen3-VL-2B-Instruct} & P-Acc & 0.259 & \cellcolor{green!21}0.286 & \cellcolor{green!11}0.273 & \cellcolor{green!5}0.260 & \cellcolor{green!12}0.274 & \cellcolor{red!5}0.254 & \cellcolor{green!5}0.264 & \cellcolor{red!5}0.257 \\
+  & F1 & 0.658 & \cellcolor{green!6}0.667 & \cellcolor{green!5}0.663 & \cellcolor{red!5}0.658 & \cellcolor{green!8}0.669 & \cellcolor{green!5}0.663 & \cellcolor{green!5}0.661 & \cellcolor{green!5}0.664 \\
+\addlinespace[2pt]
+ \multirow{2}{*}{Qwen3-VL-4B-Instruct} & P-Acc & 0.452 & \cellcolor{green!5}0.453 & \cellcolor{green!8}0.462 & \cellcolor{red!5}0.447 & \cellcolor{green!17}0.473 & \cellcolor{green!28}0.487 & \cellcolor{green!12}0.468 & \cellcolor{green!9}0.464 \\
+  & F1 & 0.710 & \cellcolor{green!5}0.717 & \cellcolor{green!7}0.719 & \cellcolor{red!5}0.707 & \cellcolor{green!5}0.716 & \cellcolor{green!27}0.745\textsuperscript{***} & \cellcolor{green!11}0.725 & \cellcolor{green!11}0.725 \\
+\addlinespace[2pt]
+ \multirow{2}{*}{Qwen3-VL-8B-Instruct} & P-Acc & 0.516 & \cellcolor{green!10}0.529 & \cellcolor{green!5}0.518 & \cellcolor{red!5}0.513 & \cellcolor{red!5}0.513 & \cellcolor{green!21}0.543 & \cellcolor{green!5}0.519 & \cellcolor{red!12}0.501 \\
+  & F1 & 0.739 & \cellcolor{green!7}0.748 & \cellcolor{green!5}0.740 & \cellcolor{green!5}0.740 & \cellcolor{red!10}0.725 & \cellcolor{green!21}0.765 & \cellcolor{green!5}0.741 & \cellcolor{red!5}0.738 \\
+\addlinespace[2pt]
+ \multirow{2}{*}{Qwen3-VL-32B-Instruct} & P-Acc & 0.617 & \cellcolor{red!6}0.609 & \cellcolor{green!5}0.618 & \cellcolor{red!22}0.589 & \cellcolor{red!31}0.577 & \cellcolor{red!10}0.604 & \cellcolor{red!5}0.610 & \cellcolor{green!5}0.619 \\
+  & F1 & 0.805 & \cellcolor{red!5}0.800 & \cellcolor{red!5}0.803 & \cellcolor{red!13}0.788 & \cellcolor{red!27}0.771\textsuperscript{***} & \cellcolor{green!5}0.808 & \cellcolor{red!5}0.798 & \cellcolor{green!5}0.810 \\
+\bottomrule
+\end{tabular}

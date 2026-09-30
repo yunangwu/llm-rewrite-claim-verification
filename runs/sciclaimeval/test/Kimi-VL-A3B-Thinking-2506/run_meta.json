@@ -1,0 +1,9 @@
+{
+  "model": "moonshotai/Kimi-VL-A3B-Thinking-2506",
+  "dataset": "sciclaimeval",
+  "split": "test",
+  "consistency_n": 10,
+  "consistency_temp": 1.0,
+  "concurrency": 96,
+  "saved_at": "2026-05-20T22:39:32.905371+00:00"
+}

@@ -1,0 +1,9 @@
+{
+  "model": "Qwen/Qwen3-VL-8B-Instruct",
+  "dataset": "sciclaimeval",
+  "split": "test",
+  "consistency_n": 10,
+  "consistency_temp": 1.0,
+  "concurrency": 64,
+  "saved_at": "2026-05-21T04:49:37.038439+00:00"
+}

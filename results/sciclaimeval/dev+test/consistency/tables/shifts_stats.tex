@@ -1,0 +1,40 @@
+\begin{tabular}{l l c l ccccccc}
+\toprule
+ & & & & \multicolumn{5}{c}{\textbf{Natural Rewriting}} & \multicolumn{2}{c}{\textbf{Controlled Rewriting}} \\
+\cmidrule(lr){5-9} \cmidrule(lr){10-11}
+\textbf{Model} & & \textbf{Base} & & LP & FI & AS & OA & CT & D1 & C1 \\
+\midrule
+ \multirow{2}{*}{gemma-4-26B-A4B-it} & $p_{\text{sup}}$ & 0.851 & $\Delta p_{\text{sup}}$ & \cellcolor{red!5}-0.011 & \cellcolor{red!9}-0.024\textsuperscript{***} & \cellcolor{red!9}-0.024\textsuperscript{***} & \cellcolor{red!18}-0.045\textsuperscript{***} & \cellcolor{green!14}+0.037\textsuperscript{***} & \cellcolor{red!5}-0.011\textsuperscript{*} & \cellcolor{green!6}+0.016\textsuperscript{*} \\
+  & $p_{\text{ref}}$ & 0.321 & $\Delta p_{\text{ref}}$ & \cellcolor{green!5}+0.007 & \cellcolor{red!5}-0.004 & \cellcolor{green!5}+0.002 & \cellcolor{red!7}-0.019\textsuperscript{*} & \cellcolor{green!27}+0.070\textsuperscript{***} & \cellcolor{red!5}-0.013\textsuperscript{*} & \cellcolor{green!8}+0.021\textsuperscript{***} \\
+\addlinespace[2pt]
+ \multirow{2}{*}{gemma-4-31B-it} & $p_{\text{sup}}$ & 0.919 & $\Delta p_{\text{sup}}$ & \cellcolor{red!5}-0.002 & \cellcolor{red!6}-0.016\textsuperscript{***} & \cellcolor{red!8}-0.020\textsuperscript{**} & \cellcolor{red!16}-0.040\textsuperscript{***} & \cellcolor{green!7}+0.019\textsuperscript{**} & \cellcolor{red!5}-0.007 & \cellcolor{green!5}+0.005 \\
+  & $p_{\text{ref}}$ & 0.315 & $\Delta p_{\text{ref}}$ & \cellcolor{green!9}+0.024\textsuperscript{***} & \cellcolor{green!8}+0.022\textsuperscript{***} & \cellcolor{green!6}+0.015\textsuperscript{*} & \cellcolor{green!5}+0.006 & \cellcolor{green!31}+0.078\textsuperscript{***} & \cellcolor{green!5}+0.010 & \cellcolor{green!14}+0.036\textsuperscript{***} \\
+\addlinespace[2pt]
+ \multirow{2}{*}{GLM-4.6V-Flash} & $p_{\text{sup}}$ & 0.823 & $\Delta p_{\text{sup}}$ & \cellcolor{green!5}+0.009 & \cellcolor{red!5}-0.004 & \cellcolor{red!5}-0.005 & \cellcolor{red!6}-0.017 & \cellcolor{green!22}+0.056\textsuperscript{***} & \cellcolor{green!5}+0.007 & \cellcolor{green!8}+0.022\textsuperscript{***} \\
+  & $p_{\text{ref}}$ & 0.283 & $\Delta p_{\text{ref}}$ & \cellcolor{green!5}+0.013\textsuperscript{*} & \cellcolor{green!5}+0.013 & \cellcolor{green!5}+0.015 & \cellcolor{green!5}+0.006 & \cellcolor{green!32}+0.080\textsuperscript{***} & \cellcolor{green!5}+0.011 & \cellcolor{green!10}+0.026\textsuperscript{***} \\
+\addlinespace[2pt]
+ \multirow{2}{*}{InternVL3-2B} & $p_{\text{sup}}$ & 0.840 & $\Delta p_{\text{sup}}$ & \cellcolor{red!5}-0.001 & \cellcolor{green!5}+0.002 & \cellcolor{green!5}+0.008 & \cellcolor{red!5}-0.004 & \cellcolor{green!20}+0.051\textsuperscript{***} & \cellcolor{red!5}-0.002 & \cellcolor{green!7}+0.018\textsuperscript{***} \\
+  & $p_{\text{ref}}$ & 0.810 & $\Delta p_{\text{ref}}$ & \cellcolor{red!5}-0.013\textsuperscript{*} & \cellcolor{red!5}-0.009 & \cellcolor{red!5}-0.010 & \cellcolor{red!6}-0.017\textsuperscript{*} & \cellcolor{green!16}+0.040\textsuperscript{***} & \cellcolor{red!5}-0.003 & \cellcolor{green!5}+0.014\textsuperscript{*} \\
+\addlinespace[2pt]
+ \multirow{2}{*}{InternVL3-8B} & $p_{\text{sup}}$ & 0.877 & $\Delta p_{\text{sup}}$ & \cellcolor{green!5}+0.003 & \cellcolor{green!5}+0.007 & \cellcolor{green!5}+0.005 & \cellcolor{red!5}-0.004 & \cellcolor{green!14}+0.037\textsuperscript{***} & \cellcolor{green!5}+0.005 & \cellcolor{green!9}+0.025\textsuperscript{***} \\
+  & $p_{\text{ref}}$ & 0.693 & $\Delta p_{\text{ref}}$ & \cellcolor{green!5}+0.006 & +0.000 & \cellcolor{green!5}+0.014 & \cellcolor{green!5}+0.010 & \cellcolor{green!28}+0.071\textsuperscript{***} & \cellcolor{green!5}+0.003 & \cellcolor{green!14}+0.037\textsuperscript{***} \\
+\addlinespace[2pt]
+ \multirow{2}{*}{InternVL3-38B} & $p_{\text{sup}}$ & 0.816 & $\Delta p_{\text{sup}}$ & \cellcolor{green!5}+0.002 & \cellcolor{red!5}-0.004 & \cellcolor{red!5}-0.002 & \cellcolor{red!10}-0.026\textsuperscript{**} & \cellcolor{green!18}+0.046\textsuperscript{***} & \cellcolor{red!6}-0.017\textsuperscript{**} & \cellcolor{green!5}+0.009 \\
+  & $p_{\text{ref}}$ & 0.520 & $\Delta p_{\text{ref}}$ & \cellcolor{green!10}+0.026\textsuperscript{*} & \cellcolor{green!5}+0.007 & \cellcolor{green!10}+0.025\textsuperscript{*} & \cellcolor{green!5}+0.005 & \cellcolor{green!35}+0.090\textsuperscript{***} & \cellcolor{red!5}-0.003 & \cellcolor{green!10}+0.027\textsuperscript{***} \\
+\addlinespace[2pt]
+ \multirow{2}{*}{Kimi-VL-A3B} & $p_{\text{sup}}$ & 0.834 & $\Delta p_{\text{sup}}$ & \cellcolor{green!5}+0.001 & \cellcolor{red!5}-0.006 & \cellcolor{red!5}-0.000 & \cellcolor{red!5}-0.005 & \cellcolor{green!7}+0.018\textsuperscript{***} & \cellcolor{red!5}-0.002 & \cellcolor{green!5}+0.004 \\
+  & $p_{\text{ref}}$ & 0.531 & $\Delta p_{\text{ref}}$ & \cellcolor{red!5}-0.001 & \cellcolor{red!5}-0.014 & \cellcolor{red!5}-0.005 & \cellcolor{red!5}-0.004 & \cellcolor{green!9}+0.024\textsuperscript{***} & \cellcolor{green!5}+0.005 & \cellcolor{green!8}+0.022\textsuperscript{***} \\
+\addlinespace[2pt]
+ \multirow{2}{*}{Qwen3-VL-2B-Instruct} & $p_{\text{sup}}$ & 0.701 & $\Delta p_{\text{sup}}$ & \cellcolor{red!5}-0.005 & \cellcolor{red!5}-0.009 & \cellcolor{red!5}-0.006 & \cellcolor{red!5}-0.005 & \cellcolor{green!11}+0.029\textsuperscript{***} & \cellcolor{red!5}-0.005 & \cellcolor{green!5}+0.008 \\
+  & $p_{\text{ref}}$ & 0.484 & $\Delta p_{\text{ref}}$ & \cellcolor{green!5}+0.010 & \cellcolor{red!5}-0.006 & \cellcolor{green!5}+0.003 & \cellcolor{red!5}-0.000 & \cellcolor{green!18}+0.046\textsuperscript{***} & \cellcolor{green!5}+0.009 & \cellcolor{green!10}+0.025\textsuperscript{***} \\
+\addlinespace[2pt]
+ \multirow{2}{*}{Qwen3-VL-4B-Instruct} & $p_{\text{sup}}$ & 0.684 & $\Delta p_{\text{sup}}$ & \cellcolor{red!5}-0.001 & \cellcolor{green!5}+0.000 & \cellcolor{red!5}-0.013 & \cellcolor{red!10}-0.026\textsuperscript{*} & \cellcolor{green!22}+0.056\textsuperscript{***} & \cellcolor{green!5}+0.002 & \cellcolor{green!6}+0.017\textsuperscript{*} \\
+  & $p_{\text{ref}}$ & 0.282 & $\Delta p_{\text{ref}}$ & \cellcolor{green!5}+0.006 & \cellcolor{red!5}-0.006 & \cellcolor{red!5}-0.006 & \cellcolor{red!9}-0.024\textsuperscript{***} & \cellcolor{green!15}+0.040\textsuperscript{***} & \cellcolor{red!5}-0.008 & \cellcolor{green!7}+0.019\textsuperscript{***} \\
+\addlinespace[2pt]
+ \multirow{2}{*}{Qwen3-VL-8B-Instruct} & $p_{\text{sup}}$ & 0.679 & $\Delta p_{\text{sup}}$ & \cellcolor{green!5}+0.014\textsuperscript{*} & \cellcolor{red!5}-0.003 & \cellcolor{red!5}-0.006 & \cellcolor{red!14}-0.036\textsuperscript{***} & \cellcolor{green!24}+0.062\textsuperscript{***} & \cellcolor{red!5}-0.007 & \cellcolor{green!6}+0.017\textsuperscript{**} \\
+  & $p_{\text{ref}}$ & 0.212 & $\Delta p_{\text{ref}}$ & \cellcolor{green!5}+0.014\textsuperscript{***} & \cellcolor{green!5}+0.005 & \cellcolor{green!5}+0.002 & \cellcolor{red!5}-0.013 & \cellcolor{green!17}+0.045\textsuperscript{***} & \cellcolor{green!5}+0.002 & \cellcolor{green!9}+0.024\textsuperscript{***} \\
+\addlinespace[2pt]
+ \multirow{2}{*}{Qwen3-VL-32B-Instruct} & $p_{\text{sup}}$ & 0.782 & $\Delta p_{\text{sup}}$ & \cellcolor{green!5}+0.001 & \cellcolor{red!7}-0.018\textsuperscript{**} & \cellcolor{red!10}-0.027\textsuperscript{***} & \cellcolor{red!25}-0.065\textsuperscript{***} & \cellcolor{green!19}+0.049\textsuperscript{***} & \cellcolor{red!6}-0.016\textsuperscript{***} & \cellcolor{green!5}+0.011 \\
+  & $p_{\text{ref}}$ & 0.198 & $\Delta p_{\text{ref}}$ & \cellcolor{green!6}+0.015\textsuperscript{***} & \cellcolor{red!5}-0.001 & \cellcolor{green!5}+0.002 & \cellcolor{red!5}-0.012 & \cellcolor{green!24}+0.061\textsuperscript{***} & \cellcolor{red!5}-0.014\textsuperscript{***} & \cellcolor{green!7}+0.019\textsuperscript{***} \\
+\bottomrule
+\end{tabular}

@@ -1,0 +1,250 @@
+# Per-model vllm parameters, keyed by HF model ID.
+# Referenced by submit_infer.sh / submit_rewrite.sh to set DP and TP
+# when launching `vllm serve`.
+#
+# concurrency: client-side items processed in parallel (each fires consistency_n=10 requests).
+#   Total in-flight requests = concurrency × consistency_n
+#   H200 (141 GB HBM3e) can absorb far more than the old default of 8.
+#
+# DP / TP cheat sheet for 8× H200 (141 GB each):
+#   2B  bf16 ~4 GB/replica  → DP=8 TP=1  (8 replicas, ~4 GB each)
+#   8B  bf16 ~16 GB/replica → DP=8 TP=1  (8 replicas, ~16 GB each)
+#   72B bf16 ~144 GB        → DP=4 TP=2  (4 replicas, 2 GPUs × ~72 GB each)
+
+# ---------------------------------------------------------------------------
+# Inference models (VL, used by: infer)
+# ---------------------------------------------------------------------------
+
+Qwen/Qwen3-VL-2B-Instruct:
+  data_parallel_size: 8
+  tensor_parallel_size: 1
+  dtype: bfloat16
+  max_model_len: 8192
+  gpu_memory_utilization: 0.9
+  trust_remote_code: true
+  concurrency: 64              # 128 causes queue backup → timeouts; 64 is safer
+
+Qwen/Qwen3-VL-4B-Instruct:
+  data_parallel_size: 8
+  tensor_parallel_size: 1
+  dtype: bfloat16
+  max_model_len: 16384
+  gpu_memory_utilization: 0.9
+  trust_remote_code: true
+  concurrency: 80               # ~8 GB bf16/replica
+
+Qwen/Qwen3-VL-8B-Instruct:
+  data_parallel_size: 8
+  tensor_parallel_size: 1
+  dtype: bfloat16
+  max_model_len: 8192
+  gpu_memory_utilization: 0.9
+  trust_remote_code: true
+  concurrency: 64              # ~16 GB/replica → plenty of headroom
+
+Qwen/Qwen3-VL-32B-Instruct:    # largest dense Qwen3-VL (no 72B exists in this series)
+  data_parallel_size: 8        # ~64 GB bf16/replica → fits comfortably per H200
+  tensor_parallel_size: 1
+  dtype: bfloat16
+  max_model_len: 8192
+  gpu_memory_utilization: 0.9
+  trust_remote_code: true
+  concurrency: 32
+
+# ---------------------------------------------------------------------------
+# Qwen2.5-VL — previous generation, standard transformer attention,
+#               works on CUDA 12.4 (unlike Qwen3.6 which needs CUDA 12.5+)
+# ---------------------------------------------------------------------------
+
+Qwen/Qwen2.5-VL-7B-Instruct:   # 7B; ~14 GB bf16/replica
+  data_parallel_size: 8
+  tensor_parallel_size: 1
+  dtype: bfloat16
+  max_model_len: 8192
+  gpu_memory_utilization: 0.9
+  trust_remote_code: true
+  concurrency: 64
+
+Qwen/Qwen2.5-VL-72B-Instruct:  # 72B; ~144 GB bf16 → TP=2 DP=4
+  data_parallel_size: 4
+  tensor_parallel_size: 2
+  dtype: bfloat16
+  max_model_len: 8192
+  gpu_memory_utilization: 0.9
+  trust_remote_code: true
+  concurrency: 32
+
+# ---------------------------------------------------------------------------
+# Qwen3.6 — multimodal (VL), GDN architecture; vLLM>=0.19.0 required
+# NOTE: GDN kernels previously failed on CUDA 12.4; may work with vLLM 0.19.x
+#       if it fails, the same FlashInfer PTX errors will appear in the vllm log
+# ---------------------------------------------------------------------------
+
+Qwen/Qwen3.6-27B:                  # 27B dense; ~54 GB bf16/replica
+  data_parallel_size: 8
+  tensor_parallel_size: 1
+  dtype: bfloat16
+  max_model_len: 16384
+  gpu_memory_utilization: 0.9
+  trust_remote_code: true
+  concurrency: 48
+  max_tokens_cot: 8192          # thinking model; needs budget for <think>...</think> + answer
+
+# Qwen/Qwen3.6-35B-A3B:            # MoE, 3B active; may also have CUDA 12.4 issues
+#   data_parallel_size: 8
+#   tensor_parallel_size: 1
+#   ...
+
+# ---------------------------------------------------------------------------
+# Gemma 4 — natively multimodal, Apache 2.0 (Google DeepMind, Apr 2026)
+# ---------------------------------------------------------------------------
+
+google/gemma-4-26B-A4B-it:     # 26B MoE, 4B active; ~52 GB bf16/replica
+  data_parallel_size: 8
+  tensor_parallel_size: 1
+  dtype: bfloat16
+  max_model_len: 8192
+  gpu_memory_utilization: 0.9
+  trust_remote_code: true
+  concurrency: 64
+
+google/gemma-4-31B-it:         # 31B dense; ~62 GB bf16/replica
+  data_parallel_size: 8
+  tensor_parallel_size: 1
+  dtype: bfloat16
+  max_model_len: 8192
+  gpu_memory_utilization: 0.9
+  trust_remote_code: true
+  concurrency: 48
+
+# ---------------------------------------------------------------------------
+# GLM-4.6V — Z.ai (Zhipu AI), MIT license
+# Flash (9B) and full (106B) multimodal models; vLLM>=0.12.0 required
+# ---------------------------------------------------------------------------
+
+zai-org/GLM-4.6V-Flash:        # 9B; ~18 GB bf16/replica
+  data_parallel_size: 8
+  tensor_parallel_size: 1
+  dtype: bfloat16
+  max_model_len: 16384
+  gpu_memory_utilization: 0.9
+  trust_remote_code: true
+  concurrency: 64
+
+zai-org/GLM-4.6V:              # 106B; ~212 GB bf16 → DP=2 TP=4 (53 GB/GPU)
+  data_parallel_size: 2
+  tensor_parallel_size: 4
+  dtype: bfloat16
+  max_model_len: 16384
+  gpu_memory_utilization: 0.92
+  trust_remote_code: true
+  concurrency: 16
+
+# ---------------------------------------------------------------------------
+# Qwen3-VL-235B-A22B — large dedicated VL MoE (~470 GB bf16 total)
+# TP=4 DP=2: each 4-GPU shard holds ~118 GB → fits; 2 replicas for throughput
+# ---------------------------------------------------------------------------
+
+Qwen/Qwen3-VL-235B-A22B-Instruct:
+  data_parallel_size: 2
+  tensor_parallel_size: 4
+  dtype: bfloat16
+  max_model_len: 8192
+  gpu_memory_utilization: 0.92
+  trust_remote_code: true
+  concurrency: 16
+
+# ---------------------------------------------------------------------------
+# Kimi-VL-A3B-Thinking-2506 — Moonshot AI, MIT license (Jun 2026)
+# MoE VL thinking model; 3B active params, vLLM supported
+# Very strong on math/reasoning despite tiny active size
+# ---------------------------------------------------------------------------
+
+moonshotai/Kimi-VL-A3B-Thinking-2506:
+  data_parallel_size: 8
+  tensor_parallel_size: 1
+  dtype: bfloat16
+  max_model_len: 16384
+  gpu_memory_utilization: 0.9
+  trust_remote_code: true
+  concurrency: 96               # ~3B active → very fast per token
+  max_tokens_cot: 8192          # thinking trace + answer; 2048 default cuts off before </think>
+
+# ---------------------------------------------------------------------------
+# Kimi K2.5 — Moonshot AI, native multimodal MoE (Jan 2026)
+# 1T total / 32B active; ~1 TB bf16 → does NOT fit; requires fp8 (~500 GB)
+# fp8 + TP=8: ~500/8 = 62 GB per GPU, tight but feasible
+# Add --quantization fp8 to vllm serve when using this model
+# ---------------------------------------------------------------------------
+
+moonshotai/Kimi-K2.5:
+  data_parallel_size: 1
+  tensor_parallel_size: 8
+  dtype: bfloat16              # override to fp8 at serve time: --dtype fp8
+  max_model_len: 4096          # conservative; increase if VRAM allows
+  gpu_memory_utilization: 0.95
+  trust_remote_code: true
+  concurrency: 4
+
+# ---------------------------------------------------------------------------
+# InternVL3 — OpenGVLab, Apache 2.0 (Sep 2025)
+# Natively multimodal (InternViT + InternLM3 backbone), trust_remote_code required
+# Sizes (bf16): 2B~4 GB, 8B~16 GB, 14B~30 GB, 38B~77 GB, 78B~152 GB
+# ---------------------------------------------------------------------------
+
+OpenGVLab/InternVL3-2B:
+  data_parallel_size: 8
+  tensor_parallel_size: 1
+  dtype: bfloat16
+  max_model_len: 16384
+  gpu_memory_utilization: 0.9
+  trust_remote_code: true
+  concurrency: 96
+
+OpenGVLab/InternVL3-8B:
+  data_parallel_size: 8
+  tensor_parallel_size: 1
+  dtype: bfloat16
+  max_model_len: 16384
+  gpu_memory_utilization: 0.9
+  trust_remote_code: true
+  concurrency: 64
+
+OpenGVLab/InternVL3-14B:
+  data_parallel_size: 8
+  tensor_parallel_size: 1
+  dtype: bfloat16
+  max_model_len: 16384
+  gpu_memory_utilization: 0.9
+  trust_remote_code: true
+  concurrency: 48
+
+OpenGVLab/InternVL3-38B:             # 76.8 GB bf16 → fits per H200 (141 GB)
+  data_parallel_size: 8
+  tensor_parallel_size: 1
+  dtype: bfloat16
+  max_model_len: 16384
+  gpu_memory_utilization: 0.9
+  trust_remote_code: true
+  concurrency: 32
+
+OpenGVLab/InternVL3-78B:             # 152 GB bf16 → TP=2 DP=4 (76 GB/GPU)
+  data_parallel_size: 4
+  tensor_parallel_size: 2
+  dtype: bfloat16
+  max_model_len: 16384
+  gpu_memory_utilization: 0.9
+  trust_remote_code: true
+  concurrency: 16
+
+# ---------------------------------------------------------------------------
+# Rewrite / generation model (text-only, used by: rewrite)
+# ---------------------------------------------------------------------------
+
+openai/gpt-oss-120b:
+  data_parallel_size: 1
+  tensor_parallel_size: 8      # ~240 GB bf16; needs all 8× H200 (141 GB each)
+  dtype: bfloat16
+  max_model_len: 8192
+  gpu_memory_utilization: 0.9
+  trust_remote_code: true

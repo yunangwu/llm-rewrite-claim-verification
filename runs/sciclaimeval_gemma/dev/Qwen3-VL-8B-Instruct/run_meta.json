@@ -1,0 +1,9 @@
+{
+  "model": "Qwen/Qwen3-VL-8B-Instruct",
+  "dataset": "sciclaimeval_gemma",
+  "split": "dev",
+  "consistency_n": 10,
+  "consistency_temp": 1.0,
+  "concurrency": 64,
+  "saved_at": "2026-07-12T10:57:01.492746+00:00"
+}

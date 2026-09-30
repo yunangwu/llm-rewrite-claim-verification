@@ -1,0 +1,25 @@
+# Python / tooling
+__pycache__/
+*.pyc
+.venv/
+.cursorignore
+
+# Cluster job output (qsub stdout/stderr) and archives
+0356_*.[eo][0-9]*
+*.zip
+logs/
+
+# Third-party dataset and vendored code (obtain from upstream)
+data/
+ext/
+
+# Large or superseded experiment artifacts
+runs/sciver/
+rewrites/sciver/
+results_old/
+
+# Paper drafts
+writing/
+
+# Annotator-identifiable originals of the returned annotation files
+annotation/result_private_original/

@@ -1,0 +1,21 @@
+# Backend mode: "endpoint" (calls a running vllm serve) or "vllm" (in-process, TODO)
+mode: endpoint
+base_url: http://localhost:8000/v1
+
+# Self-consistency sampling
+consistency_n: 10
+consistency_temp: 1.0
+
+# Async concurrency (number of in-flight requests)
+concurrency: 8
+
+# Per-request HTTP timeout (seconds) and retry count for transient errors
+# (timeout, connection reset, etc.) — retries use exponential backoff (1s, 2s, 4s)
+request_timeout: 300
+request_retries: 3
+
+# Retries when model output fails to parse
+parse_retries: 3
+
+# Set true to store raw model responses alongside predictions (increases output size)
+store_responses: false

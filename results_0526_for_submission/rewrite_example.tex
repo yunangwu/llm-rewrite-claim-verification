@@ -1,0 +1,33 @@
+% Add to preamble:
+% \usepackage{soul}
+% \usepackage[table]{xcolor}
+% \usepackage{tabularx}
+% \newcommand{\hlg}[1]{{\sethlcolor{green!20}\hl{#1}}}
+% \newcommand{\hlb}[1]{{\sethlcolor{blue!20}\hl{#1}}}
+
+\begin{table*}[t]
+\centering
+\small
+\begin{tabularx}{\linewidth}{lX}
+\toprule
+\textbf{Condition} & \textbf{Claim} \\
+\midrule
+Original & Additionally, 46.6\% of participants were primary school graduates, 9.4\% reported alcohol use, and 13\% were smokers, with an average duration of smoking of 22.83 ± 6.94 years. \\
+\midrule
+\multicolumn{2}{l}{\textit{Natural Rewriting}} \\
+\midrule
+Language Polishing (LP) & Additionally, \hlg{46.6 \%} of participants were \hlg{primary‑school} graduates, \hlg{9.4 \%} reported alcohol use, and \hlg{13 \%} were smokers, with an average \hlg{smoking} duration of 22.83 ± 6.94 years. \\
+Fluency Improvement (FI) & \hlg{Moreover, 46.6 \%} of \hlg{the} participants \hlg{had completed} primary \hlg{school; 9.4 \%} reported \hlg{consuming alcohol;} and \hlg{13 \%} were smokers, with an average smoking \hlg{history} of 22.83 ± 6.94 years. \\
+Academic Style Alignment (AS) & \hlg{Furthermore, 46.6 \%} of participants \hlg{had completed} primary \hlg{education, 9.4 \%} reported alcohol \hlg{consumption,} and \hlg{13 \%} were smokers, with \hlg{a mean smoking} duration of 22.83 ± 6.94 years. \\
+Outcome-Aware (OA) & \hlg{Notably, 46.6 \%} of \hlg{the cohort} were \hlg{primary‑school} graduates, \hlg{9.4 \%} reported alcohol \hlg{consumption,} and \hlg{13 \%} were smokers, with \hlg{a mean} smoking \hlg{history} of 22.83 ± 6.94 years. \\
+Cautious Tone (CT) & Additionally, \hlg{approximately} 46.6\% of participants \hlg{had completed} primary \hlg{school, about} 9.4\% reported alcohol \hlg{consumption,} and \hlg{roughly} 13\% \hlg{identified as} smokers, with \hlg{a reported} average \hlg{smoking} duration of 22.83 ± 6.94 years. \\
+\midrule
+\multicolumn{2}{l}{\textit{Controlled Injection}} \\
+\midrule
+Conservative (C1) & Additionally, \hlb{approximately} 46.6\% of participants were primary school graduates, 9.4\% reported alcohol use, and 13\% were smokers, with an average duration of smoking of 22.83 ± 6.94 years. \\
+Decorative (D1) & Additionally, \hlb{noteworthy} 46.6\% of participants were primary school graduates, 9.4\% reported alcohol use, and 13\% were smokers, with an average duration of smoking of 22.83 ± 6.94 years. \\
+\bottomrule
+\end{tabularx}
+\caption{Rewrite examples for claim \texttt{val\_tab\_0484} from SciClaimEval \citep{ho2026sciclaimevalcrossmodalclaimverification}. Natural rewriting: LP (Language Polishing), FI (Fluency Improvement), AS (Academic Style Alignment), OA (Outcome-Aware), CT (Cautious Tone). Controlled injection: C1 (conservative, 1 word), D1 (decorative, 1 word).}
+\label{tab:rewrite-example}
+\end{table*}

@@ -1,0 +1,9 @@
+{
+  "model": "google/gemma-4-31B-it",
+  "dataset": "sciclaimeval",
+  "split": "dev",
+  "consistency_n": 10,
+  "consistency_temp": 1.0,
+  "concurrency": 48,
+  "saved_at": "2026-05-21T08:28:23.032296+00:00"
+}

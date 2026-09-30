@@ -1,0 +1,215 @@
+{
+  "method": {
+    "pair_acc": "Paired bootstrap (n_iter=1000, seed=0) on per-pair (cond_correct \u2212 base_correct); cond_correct averaged across variants. Two-sided p-value: 2*min(P(mean>=0), P(mean<=0)).",
+    "f1": "Paired bootstrap on resampled claim_ids (n_iter=1000, seed=0). F1(cond) - F1(base) computed per resample; two-sided p-value: 2*min(P(diff>=0), P(diff<=0)).",
+    "dp_sup": "Paired bootstrap (n_iter=1000, seed=0) on per-pair \u0394p(supported) for the Supported claim of each pair.",
+    "dp_ref": "Paired bootstrap (n_iter=1000, seed=0) on per-pair \u0394p(supported) for the Refuted claim of each pair.",
+    "multiplicity": "Benjamini-Hochberg FDR over all populated cells per table."
+  },
+  "rewrite_filter_stats": {
+    "OA-mix-42:dev": {
+      "variant": "OA-mix-42",
+      "split": "dev",
+      "n_total": 747,
+      "n_broken": 0,
+      "n_empty": 0,
+      "n_too_short": 0,
+      "n_pair_dropped": 0
+    },
+    "CT-mix-42:dev": {
+      "variant": "CT-mix-42",
+      "split": "dev",
+      "n_total": 747,
+      "n_broken": 0,
+      "n_empty": 0,
+      "n_too_short": 0,
+      "n_pair_dropped": 0
+    },
+    "D_1:dev": {
+      "variant": "D_1",
+      "split": "dev",
+      "n_total": 747,
+      "n_broken": 0,
+      "n_empty": 0,
+      "n_too_short": 0,
+      "n_pair_dropped": 0
+    },
+    "C_1:dev": {
+      "variant": "C_1",
+      "split": "dev",
+      "n_total": 747,
+      "n_broken": 0,
+      "n_empty": 0,
+      "n_too_short": 0,
+      "n_pair_dropped": 0
+    }
+  },
+  "performance_raw_pvalues": {
+    "Qwen3-VL-8B-Instruct": {
+      "LP": {
+        "pair_acc": NaN,
+        "f1": NaN
+      },
+      "FI": {
+        "pair_acc": NaN,
+        "f1": NaN
+      },
+      "AS": {
+        "pair_acc": NaN,
+        "f1": NaN
+      },
+      "OA": {
+        "pair_acc": 0.2,
+        "f1": 0.098
+      },
+      "CT": {
+        "pair_acc": 0.84,
+        "f1": 0.216
+      },
+      "D_1": {
+        "pair_acc": 0.976,
+        "f1": 0.916
+      },
+      "C_1": {
+        "pair_acc": 0.716,
+        "f1": 0.902
+      }
+    }
+  },
+  "performance_fdr_qvalues": {
+    "Qwen3-VL-8B-Instruct": {
+      "OA": {
+        "pair_acc": 0.576,
+        "f1": 0.576
+      },
+      "CT": {
+        "pair_acc": 0.976,
+        "f1": 0.576
+      },
+      "D_1": {
+        "pair_acc": 0.976,
+        "f1": 0.976
+      },
+      "C_1": {
+        "pair_acc": 0.976,
+        "f1": 0.976
+      }
+    }
+  },
+  "performance_n_used": {
+    "Qwen3-VL-8B-Instruct": {
+      "LP": {
+        "pair_acc": 0,
+        "f1": 0
+      },
+      "FI": {
+        "pair_acc": 0,
+        "f1": 0
+      },
+      "AS": {
+        "pair_acc": 0,
+        "f1": 0
+      },
+      "OA": {
+        "pair_acc": 352,
+        "f1": 704
+      },
+      "CT": {
+        "pair_acc": 352,
+        "f1": 704
+      },
+      "D_1": {
+        "pair_acc": 352,
+        "f1": 704
+      },
+      "C_1": {
+        "pair_acc": 352,
+        "f1": 704
+      }
+    }
+  },
+  "shifts_raw_pvalues": {
+    "Qwen3-VL-8B-Instruct": {
+      "LP": {
+        "dp_sup": NaN,
+        "dp_ref": NaN
+      },
+      "FI": {
+        "dp_sup": NaN,
+        "dp_ref": NaN
+      },
+      "AS": {
+        "dp_sup": NaN,
+        "dp_ref": NaN
+      },
+      "OA": {
+        "dp_sup": 0.026,
+        "dp_ref": 0.736
+      },
+      "CT": {
+        "dp_sup": 0.0,
+        "dp_ref": 0.0
+      },
+      "D_1": {
+        "dp_sup": 0.254,
+        "dp_ref": 0.25
+      },
+      "C_1": {
+        "dp_sup": 0.056,
+        "dp_ref": 0.006
+      }
+    }
+  },
+  "shifts_fdr_qvalues": {
+    "Qwen3-VL-8B-Instruct": {
+      "OA": {
+        "dp_sup": 0.052,
+        "dp_ref": 0.736
+      },
+      "CT": {
+        "dp_sup": 0.0,
+        "dp_ref": 0.0
+      },
+      "D_1": {
+        "dp_sup": 0.2902857142857143,
+        "dp_ref": 0.2902857142857143
+      },
+      "C_1": {
+        "dp_sup": 0.0896,
+        "dp_ref": 0.016
+      }
+    }
+  },
+  "shifts_n_used": {
+    "Qwen3-VL-8B-Instruct": {
+      "LP": {
+        "dp_sup": 0,
+        "dp_ref": 0
+      },
+      "FI": {
+        "dp_sup": 0,
+        "dp_ref": 0
+      },
+      "AS": {
+        "dp_sup": 0,
+        "dp_ref": 0
+      },
+      "OA": {
+        "dp_sup": 352,
+        "dp_ref": 352
+      },
+      "CT": {
+        "dp_sup": 352,
+        "dp_ref": 352
+      },
+      "D_1": {
+        "dp_sup": 352,
+        "dp_ref": 352
+      },
+      "C_1": {
+        "dp_sup": 352,
+        "dp_ref": 352
+      }
+    }
+  }
+}

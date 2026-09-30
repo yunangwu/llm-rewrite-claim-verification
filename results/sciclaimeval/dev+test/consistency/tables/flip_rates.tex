@@ -1,0 +1,40 @@
+\begin{tabular}{l l ccccccc}
+\toprule
+ & & \multicolumn{5}{c}{\textbf{Natural Rewriting}} & \multicolumn{2}{c}{\textbf{Controlled Rewriting}} \\
+\cmidrule(lr){3-7} \cmidrule(lr){8-9}
+\textbf{Model} & & LP & FI & AS & OA & CT & D1 & C1 \\
+\midrule
+ \multirow{2}{*}{gemma-4-26B-A4B-it} & $\uparrow$Supported & \cellcolor{red!10}4.9\% & \cellcolor{red!10}5.2\% & \cellcolor{red!16}7.9\% & \cellcolor{red!18}8.9\% & \cellcolor{red!16}7.9\% & \cellcolor{red!9}4.5\% & \cellcolor{red!10}5.1\% \\
+  & $\downarrow$Refuted & \cellcolor{red!13}6.7\% & \cellcolor{red!14}7.0\% & \cellcolor{red!17}8.5\% & \cellcolor{red!18}8.9\% & \cellcolor{red!23}11.5\% & \cellcolor{red!11}5.7\% & \cellcolor{red!11}5.5\% \\
+\addlinespace[2pt]
+ \multirow{2}{*}{gemma-4-31B-it} & $\uparrow$Supported & \cellcolor{red!6}2.9\% & \cellcolor{red!6}3.2\% & \cellcolor{red!8}3.9\% & \cellcolor{red!12}6.1\% & \cellcolor{red!8}4.2\% & \cellcolor{red!6}3.0\% & \cellcolor{red!5}2.4\% \\
+  & $\downarrow$Refuted & \cellcolor{red!11}5.7\% & \cellcolor{red!13}6.5\% & \cellcolor{red!16}7.9\% & \cellcolor{red!19}9.6\% & \cellcolor{red!24}11.8\% & \cellcolor{red!10}5.1\% & \cellcolor{red!14}7.2\% \\
+\addlinespace[2pt]
+ \multirow{2}{*}{GLM-4.6V-Flash} & $\uparrow$Supported & \cellcolor{red!13}6.7\% & \cellcolor{red!15}7.5\% & \cellcolor{red!17}8.5\% & \cellcolor{red!22}11.0\% & \cellcolor{red!22}10.8\% & \cellcolor{red!10}4.9\% & \cellcolor{red!13}6.5\% \\
+  & $\downarrow$Refuted & \cellcolor{red!16}7.9\% & \cellcolor{red!19}9.5\% & \cellcolor{red!23}11.4\% & \cellcolor{red!22}10.8\% & \cellcolor{red!31}15.5\% & \cellcolor{red!11}5.5\% & \cellcolor{red!13}6.4\% \\
+\addlinespace[2pt]
+ \multirow{2}{*}{InternVL3-2B} & $\uparrow$Supported & \cellcolor{red!11}5.5\% & \cellcolor{red!11}5.7\% & \cellcolor{red!11}5.6\% & \cellcolor{red!12}6.0\% & \cellcolor{red!9}4.7\% & \cellcolor{red!10}5.1\% & \cellcolor{red!9}4.7\% \\
+  & $\downarrow$Refuted & \cellcolor{red!15}7.4\% & \cellcolor{red!16}8.0\% & \cellcolor{red!13}6.5\% & \cellcolor{red!17}8.6\% & \cellcolor{red!15}7.7\% & \cellcolor{red!14}7.0\% & \cellcolor{red!12}5.9\% \\
+\addlinespace[2pt]
+ \multirow{2}{*}{InternVL3-8B} & $\uparrow$Supported & \cellcolor{red!10}5.2\% & \cellcolor{red!10}4.9\% & \cellcolor{red!11}5.3\% & \cellcolor{red!10}5.2\% & \cellcolor{red!12}5.8\% & \cellcolor{red!9}4.3\% & \cellcolor{red!6}3.2\% \\
+  & $\downarrow$Refuted & \cellcolor{red!24}11.9\% & \cellcolor{red!22}10.8\% & \cellcolor{red!23}11.3\% & \cellcolor{red!27}13.6\% & \cellcolor{red!29}14.7\% & \cellcolor{red!22}11.2\% & \cellcolor{red!23}11.5\% \\
+\addlinespace[2pt]
+ \multirow{2}{*}{InternVL3-38B} & $\uparrow$Supported & \cellcolor{red!16}7.8\% & \cellcolor{red!14}7.1\% & \cellcolor{red!16}7.8\% & \cellcolor{red!17}8.7\% & \cellcolor{red!13}6.7\% & \cellcolor{red!13}6.7\% & \cellcolor{red!12}6.0\% \\
+  & $\downarrow$Refuted & \cellcolor{red!23}11.5\% & \cellcolor{red!22}11.2\% & \cellcolor{red!24}12.2\% & \cellcolor{red!29}14.7\% & \cellcolor{red!30}15.1\% & \cellcolor{red!20}10.0\% & \cellcolor{red!22}11.1\% \\
+\addlinespace[2pt]
+ \multirow{2}{*}{Kimi-VL-A3B} & $\uparrow$Supported & \cellcolor{red!12}6.1\% & \cellcolor{red!20}9.8\% & \cellcolor{red!18}8.9\% & \cellcolor{red!21}10.3\% & \cellcolor{red!16}8.0\% & \cellcolor{red!14}7.0\% & \cellcolor{red!13}6.7\% \\
+  & $\downarrow$Refuted & \cellcolor{red!23}11.3\% & \cellcolor{red!30}14.8\% & \cellcolor{red!27}13.5\% & \cellcolor{red!29}14.3\% & \cellcolor{red!32}16.1\% & \cellcolor{red!19}9.4\% & \cellcolor{red!23}11.6\% \\
+\addlinespace[2pt]
+ \multirow{2}{*}{Qwen3-VL-2B-Instruct} & $\uparrow$Supported & \cellcolor{red!22}10.9\% & \cellcolor{red!22}10.9\% & \cellcolor{red!23}11.3\% & \cellcolor{red!27}13.7\% & \cellcolor{red!31}15.4\% & \cellcolor{red!26}12.8\% & \cellcolor{red!23}11.4\% \\
+  & $\downarrow$Refuted & \cellcolor{red!25}12.3\% & \cellcolor{red!34}16.8\% & \cellcolor{red!32}15.9\% & \cellcolor{red!33}16.7\% & \cellcolor{red!31}15.3\% & \cellcolor{red!23}11.7\% & \cellcolor{red!25}12.7\% \\
+\addlinespace[2pt]
+ \multirow{2}{*}{Qwen3-VL-4B-Instruct} & $\uparrow$Supported & \cellcolor{red!23}11.3\% & \cellcolor{red!23}11.6\% & \cellcolor{red!24}12.1\% & \cellcolor{red!30}14.8\% & \cellcolor{red!30}15.1\% & \cellcolor{red!16}7.9\% & \cellcolor{red!19}9.7\% \\
+  & $\downarrow$Refuted & \cellcolor{red!22}10.8\% & \cellcolor{red!20}9.9\% & \cellcolor{red!24}12.1\% & \cellcolor{red!25}12.7\% & \cellcolor{red!25}12.7\% & \cellcolor{red!17}8.6\% & \cellcolor{red!18}8.8\% \\
+\addlinespace[2pt]
+ \multirow{2}{*}{Qwen3-VL-8B-Instruct} & $\uparrow$Supported & \cellcolor{red!19}9.3\% & \cellcolor{red!21}10.4\% & \cellcolor{red!24}12.1\% & \cellcolor{red!30}14.8\% & \cellcolor{red!27}13.5\% & \cellcolor{red!16}7.8\% & \cellcolor{red!17}8.7\% \\
+  & $\downarrow$Refuted & \cellcolor{red!15}7.6\% & \cellcolor{red!17}8.3\% & \cellcolor{red!18}8.8\% & \cellcolor{red!20}10.2\% & \cellcolor{red!24}11.8\% & \cellcolor{red!16}8.2\% & \cellcolor{red!14}7.2\% \\
+\addlinespace[2pt]
+ \multirow{2}{*}{Qwen3-VL-32B-Instruct} & $\uparrow$Supported & \cellcolor{red!12}6.0\% & \cellcolor{red!12}6.2\% & \cellcolor{red!18}8.9\% & \cellcolor{red!21}10.7\% & \cellcolor{red!18}9.0\% & \cellcolor{red!13}6.3\% & \cellcolor{red!14}6.9\% \\
+  & $\downarrow$Refuted & \cellcolor{red!14}7.0\% & \cellcolor{red!13}6.6\% & \cellcolor{red!16}8.0\% & \cellcolor{red!20}9.8\% & \cellcolor{red!21}10.7\% & \cellcolor{red!12}5.9\% & \cellcolor{red!14}7.2\% \\
+\bottomrule
+\end{tabular}
