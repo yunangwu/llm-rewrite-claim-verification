@@ -294,8 +294,8 @@ def generate_flip_rate_table(
     ]
 
     sub_rows = [
-        ("flip_sup", r"$\uparrow$Supported"),
-        ("flip_ref", r"$\downarrow$Refuted"),
+        ("flip_sup", "Supported"),
+        ("flip_ref", "Refuted"),
     ]
 
     def _flip_cell(val: float | None) -> str:
